@@ -1,0 +1,2 @@
+export const sendil_laptop_local_token =
+  "ct8UllQT9jDRArgrMQWNqm:APA91bGGmAPjxV2781_nDAmirhyimeLw1fdsETCNPP39LJJ1feBk-PjPrMC9uAxLKM3CJvPhJBPfPuTQUu9GTBSWvSgTf_i-HSgckoEYFbb2A03-YeK-aU4";
