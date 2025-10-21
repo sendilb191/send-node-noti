@@ -2,8 +2,13 @@ name: Send Firebase Notification
 
 on:
   schedule:
-    - cron: '0 6 * * *' # Runs every day at 6 AM UTC (adjust as needed)
-  workflow_dispatch: # Allows manual trigger from GitHub UI
+    # 8 AM IST = 2:30 AM UTC
+    - cron: "30 2 * * *"
+    # 2 PM IST = 8:30 AM UTC
+    - cron: "30 8 * * *"
+    # 8 PM IST = 14:30 UTC
+    - cron: "30 14 * * *"
+  workflow_dispatch: # Allows manual trigger
 
 jobs:
   send-notification:
@@ -16,12 +21,13 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18'
+          node-version: "18"
 
       - name: Install dependencies
         run: npm install
 
+      - name: Create service-account.json from secret
+        run: echo "${{ secrets.FIREBASE_SERVICE_ACCOUNT }}" > service-account.json
+
       - name: Send notification
         run: node index.js
-        env:
-          GOOGLE_APPLICATION_CREDENTIALS: ./service-account.json
