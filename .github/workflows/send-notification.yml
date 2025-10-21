@@ -1,0 +1,27 @@
+name: Send Firebase Notification
+
+on:
+  schedule:
+    - cron: '0 6 * * *' # Runs every day at 6 AM UTC (adjust as needed)
+  workflow_dispatch: # Allows manual trigger from GitHub UI
+
+jobs:
+  send-notification:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Send notification
+        run: node index.js
+        env:
+          GOOGLE_APPLICATION_CREDENTIALS: ./service-account.json
