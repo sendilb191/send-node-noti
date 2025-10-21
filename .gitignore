@@ -5,7 +5,7 @@ yarn-debug.log*
 yarn-error.log*
 
 # Firebase service account key
-service-account.json
+# service-account.json
 
 # Environment variables
 .env
