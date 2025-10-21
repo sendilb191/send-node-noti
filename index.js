@@ -4,10 +4,26 @@ import admin from "firebase-admin";
 import fs from "fs";
 import { deviceTokens } from "./constants.js"; // array of tokens
 
+const isProduction = process.env.NODE_ENV === "production";
+
+let serviceAccount;
+
+if (isProduction) {
+  // Use secret from GitHub Actions
+  serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT);
+  console.log("Using service account from GitHub Secrets");
+} else {
+  // Use local file for development
+  serviceAccount = JSON.parse(
+    fs.readFileSync("./service-account.json", "utf8")
+  );
+  console.log("Using local service-account.json");
+}
+
 // Load your service account key file
-const serviceAccount = JSON.parse(
-  fs.readFileSync("service-account.json", "utf8")
-);
+// const serviceAccount = JSON.parse(
+//   fs.readFileSync("service-account.json", "utf8")
+// );
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
