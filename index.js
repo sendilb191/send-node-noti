@@ -2,7 +2,7 @@ process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 
 import admin from "firebase-admin";
 import fs from "fs";
-import { sendil_laptop_local_token } from "./contants";
+import { sendil_laptop_local_token } from "./constants.js";
 
 // Load your service account key file
 const serviceAccount = JSON.parse(
