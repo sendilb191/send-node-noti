@@ -2,7 +2,7 @@ process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 
 import admin from "firebase-admin";
 import fs from "fs";
-import { sendil_laptop_local_token } from "./constants.js";
+import { deviceTokens } from "./constants.js"; // array of tokens
 
 // Load your service account key file
 const serviceAccount = JSON.parse(
@@ -14,19 +14,29 @@ admin.initializeApp({
 });
 
 const message = {
-  token: sendil_laptop_local_token,
   notification: {
     title: "Good Morning 🌅",
     body: "Here's your daily update!",
   },
+  tokens: deviceTokens, // array of tokens
 };
 
 admin
   .messaging()
-  .send(message)
+  .sendEachForMulticast(message)
   .then((response) => {
-    console.log("Successfully sent message:", response);
+    console.log(`✅ Sent to ${response.successCount} devices`);
+    if (response.failureCount > 0) {
+      response.responses.forEach((resp, idx) => {
+        if (!resp.success) {
+          console.error(
+            `❌ Failed to send to ${deviceTokens[idx]}:`,
+            resp.error
+          );
+        }
+      });
+    }
   })
   .catch((error) => {
-    console.error("Error sending message:", error);
+    console.error("🔥 Error sending notifications:", error);
   });

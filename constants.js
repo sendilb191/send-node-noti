@@ -1,2 +1,9 @@
 export const sendil_laptop_local_token =
   "ct8UllQT9jDRArgrMQWNqm:APA91bGGmAPjxV2781_nDAmirhyimeLw1fdsETCNPP39LJJ1feBk-PjPrMC9uAxLKM3CJvPhJBPfPuTQUu9GTBSWvSgTf_i-HSgckoEYFbb2A03-YeK-aU4";
+
+export const deviceTokens = [
+  // "ct8UllQT9jDRArgrMQWNqm:APA91bGGmAPjxV2781_nDAmirhyimeLw1fdsETCNPP39LJJ1feBk-PjPrMC9uAxLKM3CJvPhJBPfPuTQUu9GTBSWvSgTf_i-HSgckoEYFbb2A03-YeK-aU4",
+  "ekdVka7C1a4O-FEaIdbGR_:APA91bErr-CbMhzdGxyxGHdSBzTNN5cGCKCcbkpkThXOEFY66rErKrLX9POBxhAgJJidkvhEWgS2EuUJqeZAZ3Cwxd-cSippJylhPEtbUBghDtF702KAzfg",
+  "ct8UllQT9jDRArgrMQWNqm:APA91bGIQxgU1kMGo2GgRYHfVkO0f7DLHwaY9YZ91SG8sabKc1m1hI5i4OPFEKBHpm3qGDS_FD6-jnSN4wA4DRJb62AOdDqoOgUqWXyy-OkfRolCSPywvMQ",
+  "eM17AseHRlyhUT4ip88D9D:APA91bE2uw-mwLrSUlsRtJTl8E93zfFk3gb6dnJFvrxuj92YS3ROmErz07fw7ncXVl8Wy8VkgNsjSq-5lm_hPlshMtMKbMiluayi4ZvUhwJmpRzMAPFzJdA", // mobile dev
+];
